@@ -161,7 +161,7 @@ npm run dev
 
 ```
 Email: tienphongp74@gmail.com
-Password: phong@18205
+Password: (Ask admin for password)
 ```
 
 ---
