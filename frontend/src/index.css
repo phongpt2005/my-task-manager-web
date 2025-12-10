@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom base styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    @apply bg-gray-50 text-gray-900;
+    @apply dark:bg-gray-900 dark:text-gray-100;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    @apply w-2 h-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+}
+
+/* Component styles */
+@layer components {
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/70 dark:bg-gray-800/70;
+    @apply backdrop-blur-xl;
+    @apply border border-white/20 dark:border-gray-700/50;
+  }
+
+  /* Card styles */
+  .card {
+    @apply bg-white dark:bg-gray-800;
+    @apply rounded-xl shadow-card;
+    @apply border border-gray-100 dark:border-gray-700;
+    @apply transition-all duration-200;
+  }
+
+  .card:hover {
+    @apply shadow-card-hover;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center;
+    @apply px-4 py-2 rounded-lg font-medium;
+    @apply transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn;
+    @apply bg-gradient-to-r from-primary-500 to-primary-600;
+    @apply hover:from-primary-600 hover:to-primary-700;
+    @apply text-white;
+    @apply focus:ring-primary-500;
+  }
+
+  .btn-secondary {
+    @apply btn;
+    @apply bg-gray-100 dark:bg-gray-700;
+    @apply hover:bg-gray-200 dark:hover:bg-gray-600;
+    @apply text-gray-700 dark:text-gray-200;
+    @apply focus:ring-gray-500;
+  }
+
+  .btn-danger {
+    @apply btn;
+    @apply bg-red-500 hover:bg-red-600;
+    @apply text-white;
+    @apply focus:ring-red-500;
+  }
+
+  .btn-ghost {
+    @apply btn;
+    @apply bg-transparent hover:bg-gray-100 dark:hover:bg-gray-700;
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-2.5 rounded-lg;
+    @apply bg-gray-50 dark:bg-gray-700;
+    @apply border border-gray-200 dark:border-gray-600;
+    @apply text-gray-900 dark:text-white;
+    @apply placeholder-gray-400 dark:placeholder-gray-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+
+  .input-error {
+    @apply border-red-500 focus:ring-red-500;
+  }
+
+  /* Label styles */
+  .label {
+    @apply block text-sm font-medium;
+    @apply text-gray-700 dark:text-gray-300;
+    @apply mb-1.5;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full;
+    @apply text-xs font-medium;
+  }
+
+  .badge-high {
+    @apply bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400;
+  }
+
+  .badge-medium {
+    @apply bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400;
+  }
+
+  .badge-low {
+    @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  .badge-todo {
+    @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300;
+  }
+
+  .badge-inprogress {
+    @apply bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400;
+  }
+
+  .badge-review {
+    @apply bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400;
+  }
+
+  .badge-done {
+    @apply bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400;
+  }
+
+  /* Sidebar styles */
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg;
+    @apply text-gray-600 dark:text-gray-400;
+    @apply hover:bg-gray-100 dark:hover:bg-gray-700;
+    @apply hover:text-gray-900 dark:hover:text-white;
+    @apply transition-all duration-200;
+  }
+
+  .sidebar-link.active {
+    @apply bg-primary-50 dark:bg-primary-900/20;
+    @apply text-primary-600 dark:text-primary-400;
+  }
+
+  /* Kanban column */
+  .kanban-column {
+    @apply flex-shrink-0 w-80;
+    @apply bg-gray-100/50 dark:bg-gray-800/50;
+    @apply rounded-xl p-4;
+  }
+
+  /* Task card in kanban */
+  .task-card {
+    @apply card p-4 mb-3 cursor-grab active:cursor-grabbing;
+    @apply hover:shadow-lg hover:scale-[1.02];
+  }
+
+  .task-card.dragging {
+    @apply opacity-50 scale-105;
+  }
+}
+
+/* FullCalendar custom styles */
+.fc {
+  @apply font-sans;
+}
+
+.fc .fc-toolbar-title {
+  @apply text-xl font-semibold text-gray-800 dark:text-gray-100;
+}
+
+.fc .fc-button {
+  @apply bg-primary-500 border-primary-500 text-white;
+  @apply hover:bg-primary-600 hover:border-primary-600;
+  @apply focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+}
+
+.fc .fc-button:disabled {
+  @apply opacity-50;
+}
+
+.fc .fc-button-active {
+  @apply bg-primary-700 border-primary-700;
+}
+
+.fc .fc-day-today {
+  @apply bg-primary-50 dark:bg-primary-900/20;
+}
+
+.fc .fc-event {
+  @apply rounded-md px-2 py-1 text-sm;
+  @apply border-0;
+}
+
+.fc .fc-daygrid-day-number {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.fc .fc-col-header-cell-cushion {
+  @apply text-gray-600 dark:text-gray-400 font-medium;
+}
+
+/* Animation utilities */
+@layer utilities {
+  .animate-in {
+    @apply animate-fade-in;
+  }
+
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
+
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  @apply w-6 h-6 border-2 border-primary-200 border-t-primary-600 rounded-full animate-spin;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-primary-500 to-secondary-500;
+}
